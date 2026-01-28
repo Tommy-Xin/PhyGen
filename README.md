@@ -31,7 +31,6 @@ Our method is applicable to both continuous and discrete denoiser without the re
 ## 📅 News
 * [2025-06-26] GenHancer is accepted to ICCV 2025! 🎉🎉🎉
 * [2025-03-27] Training codes with continuous denoisers are released! 🔥🔥🔥
-* [2025-03-26] arXiv paper is made publicly available.
 * [2025-03-24] Release evaluation codes. 🔥
 * [2025-03-24] Release models weights on [Huggingface🤗](https://huggingface.co/msj9817/GenHancer/). 🔥🔥🔥
 * [2025-03-24] Release the [project page](https://mashijie1028.github.io/GenHancer/) of this repo.
