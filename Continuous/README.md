@@ -102,3 +102,21 @@ bash train_scripts/scripts_train_SigLIP_384_stage2_all.sh
 ## 🤗 Acknowledgements
 
 When building the codebase of continuous denosiers, we refer to [x-flux](https://github.com/XLabs-AI/x-flux). Thanks for their wonderful project. Notably, we do NOT use their pre-trained weights.
+
+## Attention!!
+the output_lora folder is to record the difference among the steps 
+
+## How to view the training status
+
+tensorboard --logdir 
+CLIP:
+224:
+best reproduction stage1 weights:/home/gaiyiming/hjq/xinc/GenHancer/Continuous/outputs/output_CLIP_seed99_224_stage1_gradient_accumulation_4
+best reproduction stage2 weights:/home/gaiyiming/hjq/xinc/GenHancer/Continuous/outputs_lora/output_CLIP_seed99_224_stage2_load100000_all_lr1e-5_gradient_accumulation_4
+
+SigCLIP:
+384:
+/home/gaiyiming/hjq/xinc/GenHancer/Continuous/outputs/output_SigLIP_384_stage1_globalbatchsize128
+/home/gaiyiming/hjq/xinc/GenHancer/Continuous/outputs_lora/output_SigLIP_384_stage1_globalbatchsize128 
+
+stage2 在2000步左右最优（1850）
