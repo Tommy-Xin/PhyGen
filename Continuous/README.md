@@ -108,7 +108,7 @@ the output_lora folder is to record the difference among the steps
 
 ## How to view the training status
 
-tensorboard --logdir 
+tensorboard --logdir /home/gaiyiming/hjq/xinc/GenHancer/Continuous/outputs/flux2/CLIP_224_stage1_meanflow_grad_2_100000_steps/logs/flux-lightweight
 CLIP:
 224:
 best reproduction stage1 weights:/home/gaiyiming/hjq/xinc/GenHancer/Continuous/outputs/output_CLIP_seed99_224_stage1_gradient_accumulation_4
@@ -120,3 +120,7 @@ SigCLIP:
 /home/gaiyiming/hjq/xinc/GenHancer/Continuous/outputs_lora/output_SigLIP_384_stage1_globalbatchsize128 
 
 stage2 在2000步左右最优（1850）
+
+
+delete all the csv file under a specific folder:
+cd /home/gaiyiming/hjq/xinc && find /home/gaiyiming/hjq/xinc/GenHancer/Continuous/outputs/imf/output_lora/CLIP_224_load100000_imf_grad_2_8000_steps -type f -name "*.csv" -delete

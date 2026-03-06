@@ -13,12 +13,15 @@ class OpenAICLIP(nn.Module):
     def __init__(self, config):
         super().__init__()
 
+        clip_path = getattr(config, "clip_path", None)
         if config.clip_image_size == 224:
-            model = CLIPModel.from_pretrained('/home/gaiyiming/hjq/xinc/GenHancer/Continuous/pretrained_weights/clip-vit-large-patch14')
+            model_path = clip_path or '/home/gaiyiming/hjq/xinc/GenHancer/Continuous/pretrained_weights/clip-vit-large-patch14'
+            model = CLIPModel.from_pretrained(model_path)
             # state = torch.load('/home/gaiyiming/hjq/xinc/DiffusionCLIP/pretrained_weights/CLIP/OpenAICLIP/OpenAI-ViT-L-14-224.pth', map_location="cpu")
             # model = build_model(state)
         if config.clip_image_size == 336:
-            model = CLIPModel.from_pretrained('/home/gaiyiming/hjq/xinc/GenHancer/Continuous/pretrained_weights/clip-vit-large-patch14-336')
+            model_path = clip_path or '/home/gaiyiming/hjq/xinc/GenHancer/Continuous/pretrained_weights/clip-vit-large-patch14-336'
+            model = CLIPModel.from_pretrained(model_path)
 
         self.project_clip = nn.Sequential(
             nn.LayerNorm(768),

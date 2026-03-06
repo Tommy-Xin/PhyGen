@@ -166,12 +166,23 @@ def collate_anyres(images, sizes, patch_size, max_size=2048):
     return packed_images, cu_seqlens_img, max_seqlen_img, grid_hw, torch.tensor(sizes)
 
 
-def get_cc3m_wds_dataset_and_collator(img_size, img_dir, seed, patch_size):
+def get_cc3m_wds_dataset_and_collator(
+    img_size,
+    img_dir,
+    seed,
+    patch_size,
+    data_fraction=1.0,
+    dataset_size=3_000_000,
+):
     train_processor = image_transform(img_size, is_train=True)
     val_processor = image_transform(img_size, is_train=False)
 
     data = load_dataset("webdataset", data_dir=img_dir, split="train", streaming=True)
     data = data.shuffle(buffer_size=2_000, seed=seed)
+    if data_fraction is not None and 0 < float(data_fraction) < 1.0:
+        take_count = max(1, int(dataset_size * float(data_fraction)))
+        data = data.take(take_count)
+        print(f"[CC3M] data_fraction={data_fraction}, taking {take_count} samples")
 
     def decode(sample, img_processor):
         sample = find_image(sample)

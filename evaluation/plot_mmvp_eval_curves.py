@@ -102,3 +102,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+# python /home/gaiyiming/hjq/xinc/GenHancer/evaluation/plot_mmvp_eval_curves.py --jsonl_path /home/gaiyiming/hjq/xinc/GenHancer/Continuous/outputs/imf/output_lora/CLIP_224_load100000_imf_grad_2_10s000_steps/mmvp_eval_results.jsonl --output_dir /home/gaiyiming/hjq/xinc/GenHancer/Continuous/outputs/imf/output_lora/CLIP_224_load100000_imf_grad_2_10s000_steps/
